@@ -83,7 +83,7 @@ const Navbar = () => {
               </li>
             </NavLink>
           ) : (
-            <div className="border-4 dropdown dropdown-end">
+            <div className="md:hidden border-4 dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"

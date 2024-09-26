@@ -17,6 +17,10 @@ import AdminOverview from "../pages/dashboard/admin/AdminOverview";
 import AdminRoot from "../pages/dashboard/admin/AdminRoot";
 import Admins from "../pages/dashboard/admin/users/Admins";
 import Customers from "../pages/dashboard/admin/users/Customers";
+import UpcomingBookings from "../pages/dashboard/admin/bookings/UpcomingBookings";
+import OngoingBookings from "../pages/dashboard/admin/bookings/OngoingBookings";
+import SuccessfulBookings from "../pages/dashboard/admin/bookings/SuccessfulBookings";
+import CanceledBookings from "../pages/dashboard/admin/bookings/CanceledBookings";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +50,10 @@ export const router = createBrowserRouter([
         ),
         children: [
           { path: "overview", element: <AdminOverview /> },
+          { path: "bookings/manage/upcoming", element: <UpcomingBookings /> },
+          { path: "bookings/manage/ongoing", element: <OngoingBookings /> },
+          { path: "bookings/manage/success", element: <SuccessfulBookings /> },
+          { path: "bookings/manage/canceled", element: <CanceledBookings /> },
           { path: "users/manage/admins", element: <Admins /> },
           { path: "users/manage/customers", element: <Customers /> },
         ],
