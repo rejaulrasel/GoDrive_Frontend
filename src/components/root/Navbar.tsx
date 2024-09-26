@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to={"/"}>
             {" "}
             <h2>
-              Go<span className="text-rose-600">DRIVE</span>
+              Rent<span className="text-rose-600">NGo—</span>
             </h2>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
               </li>
             </NavLink>
           ) : (
-            <div className="dropdown dropdown-end">
+            <div className="border-4 dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"

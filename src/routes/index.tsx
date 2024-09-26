@@ -13,6 +13,10 @@ import Vehicles from "../pages/root/Vehicles";
 import VehicleDetails from "../pages/root/VehicleDetails";
 import Contact from "../pages/root/Contact";
 import About from "../pages/root/About";
+import AdminOverview from "../pages/dashboard/admin/AdminOverview";
+import AdminRoot from "../pages/dashboard/admin/AdminRoot";
+import Admins from "../pages/dashboard/admin/users/Admins";
+import Customers from "../pages/dashboard/admin/users/Customers";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +34,22 @@ export const router = createBrowserRouter([
       { path: "/auth/register", element: <Register /> },
       { path: "/auth/recover", element: <Recover /> },
       { path: "/profile/settings", element: <ProfileSettings /> },
+
+      // admin (protected)
+      {
+        path: "/dashboard/admin",
+        element: (
+          <RoleGard role="admin">
+            {" "}
+            <AdminRoot />
+          </RoleGard>
+        ),
+        children: [
+          { path: "overview", element: <AdminOverview /> },
+          { path: "users/manage/admins", element: <Admins /> },
+          { path: "users/manage/customers", element: <Customers /> },
+        ],
+      },
 
       // customer
       {
