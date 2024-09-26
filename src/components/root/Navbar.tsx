@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { logout, useCurrentUser } from "../../redux/features/auth/auth.slice";
+import demoProfile from "../../../src/assets/demo-profile.jpg";
+import { useGetFullUserQuery } from "../../redux/features/user/user.api";
 import Headroom from "react-headroom";
+
 const Navbar = () => {
   const [dropDownState, setDropDownState] = useState(false);
   const url = window.location.href;
   const currentRoute = url.split("/")[3];
+  const user = useAppSelector(useCurrentUser);
+  const dispatch = useAppDispatch();
+  const { data: fullUser } = useGetFullUserQuery([{ email: user?.user }], {
+    skip: !user,
+  });
 
   return (
     <Headroom className="!z-[2000]">
@@ -13,7 +23,7 @@ const Navbar = () => {
           <Link to={"/"}>
             {" "}
             <h2>
-              Go<span className="text-rose-600">Drive</span>
+              Go<span className="text-rose-600">DRIVE</span>
             </h2>
           </Link>
         </div>
@@ -60,9 +70,113 @@ const Navbar = () => {
               ></span>
             </li>
           </NavLink>
+
+          {!user ? (
+            <NavLink to={"/auth/login"}>
+              <li className="group flex  cursor-pointer flex-col">
+                Sign In
+                <span
+                  className={`mt-[2px] h-[3px] ${
+                    currentRoute === "auth" ? "w-full" : "w-0"
+                  } rounded-full bg-rose-600 transition-all duration-300 group-hover:w-full`}
+                ></span>
+              </li>
+            </NavLink>
+          ) : (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Profile img"
+                    src={
+                      fullUser?.data?.photo
+                        ? fullUser?.data?.photo
+                        : demoProfile
+                    }
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+              >
+                <li>
+                  <div className="justify-between">
+                    {user?.user}
+                    <span className="badge">
+                      {/* {user.role.charAt(0).toLocaleUpperCase() + user.role.slice(1)} */}
+                      {user.role === "user" ? "Customer" : "Admin"}
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <Link to={`/profile/settings`}>Profile Settings</Link>
+                </li>
+                <li>
+                  <Link to={`/dashboard/${user?.role}/overview`}>
+                    Dashboard
+                  </Link>
+                </li>
+                <li onClick={() => dispatch(logout())}>
+                  {" "}
+                  <a>Logout</a>{" "}
+                </li>
+              </ul>
+            </div>
+          )}
         </ul>
         <div className="flex md:hidden justify-center items-center z-20">
           {/* mobile profile */}
+          {user && (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Profile img"
+                    src={
+                      fullUser?.data?.photo
+                        ? fullUser?.data?.photo
+                        : demoProfile
+                    }
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+              >
+                <li>
+                  <div className="justify-between">
+                    {user?.user}
+                    <span className="badge">
+                      {/* {user.role.charAt(0).toLocaleUpperCase() + user.role.slice(1)} */}
+                      {user.role === "user" ? "Customer" : "Admin"}
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <Link to={`/profile/settings`}>Profile Settings</Link>
+                </li>
+                <li>
+                  <Link to={`/dashboard/${user?.role}/overview`}>
+                    Dashboard
+                  </Link>
+                </li>
+                <li onClick={() => dispatch(logout())}>
+                  {" "}
+                  <a>Logout</a>{" "}
+                </li>
+              </ul>
+            </div>
+          )}
 
           <div
             onClick={() => setDropDownState(!dropDownState)}
@@ -101,6 +215,12 @@ const Navbar = () => {
                 <NavLink to={"/contact"}>
                   <li className="cursor-pointer  px-6 py-2">Contact</li>
                 </NavLink>
+
+                {!user && (
+                  <NavLink to={"/auth/login"}>
+                    <li className="cursor-pointer  px-6 py-2">Sign in</li>
+                  </NavLink>
+                )}
               </ul>
             )}
           </div>

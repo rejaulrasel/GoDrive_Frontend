@@ -11,6 +11,7 @@ const Home = () => {
     <div className="">
       <Navbar />
       <Hero />
+
       <div data-aos="fade-up" className="">
         <WhyChooseUs />
       </div>
