@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link to={"/"}>
             {" "}
             <h2>
-              Go<span className="text-rose-600">Drive—</span>
+              Go<span className="text-rose-600">Drive</span>
             </h2>
           </Link>
         </div>
