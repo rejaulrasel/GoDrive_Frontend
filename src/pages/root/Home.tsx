@@ -1,4 +1,5 @@
 import Accordion from "../../components/home/Accordion";
+import Featured from "../../components/home/Featured";
 import { Hero } from "../../components/home/Hero";
 import Team from "../../components/home/Team";
 import Testimonial from "../../components/home/Testimonial";
@@ -11,21 +12,23 @@ const Home = () => {
     <div className="">
       <Navbar />
       <Hero />
-
-      <div data-aos="fade-up" className="">
-        <WhyChooseUs />
-      </div>
-      <div data-aos="fade-up" className="">
-        <Team />
-      </div>
-      <div data-aos="fade-up" className="">
-        <Testimonial />
-      </div>
-      <div data-aos="fade-up" className="">
-        <Accordion />
-      </div>
       <div className="">
-        <Footer />
+        <Featured />
+        <div data-aos="fade-up" className="">
+          <WhyChooseUs />
+        </div>
+        <div data-aos="fade-up" className="">
+          <Team />
+        </div>
+        <div data-aos="fade-up" className="">
+          <Testimonial />
+        </div>
+        <div data-aos="fade-up" className="">
+          <Accordion />
+        </div>
+        <div className="">
+          <Footer />
+        </div>
       </div>
     </div>
   );
