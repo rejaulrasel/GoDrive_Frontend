@@ -11,6 +11,8 @@ import UserOverview from "../pages/dashboard/user/UserOverview";
 import Bookings from "../pages/dashboard/user/bookings/Bookings";
 import Vehicles from "../pages/root/Vehicles";
 import VehicleDetails from "../pages/root/VehicleDetails";
+import Contact from "../pages/root/Contact";
+import About from "../pages/root/About";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ export const router = createBrowserRouter([
     // errorElement: <NotFoundError />,
     children: [
       { index: true, element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
       { path: "/vehicles", element: <Vehicles /> },
       { path: "/vehicles/details/:_id", element: <VehicleDetails /> },
       { path: "/auth/login", element: <Login /> },
