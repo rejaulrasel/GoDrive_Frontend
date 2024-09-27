@@ -11,7 +11,7 @@ async function uploadImageToImgBb(file: File): Promise<UploadResponse> {
     img.append('image', file);
 
     try {
-        const res = await axios.post(`https://api.imgbb.com/1/upload?key=4b159d954d16c4775776e8c6e880b320`, img);
+        const res = await axios.post(`https://api.imgbb.com/1/upload?key=aff4f22a4b2e03ac8b433d2f78dbbb87`, img);
 
         if (res.data?.success) {
             return {
