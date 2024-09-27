@@ -1,6 +1,8 @@
 import Accordion from "../../components/home/Accordion";
+import Cta from "../../components/home/CTA";
 import Featured from "../../components/home/Featured";
 import { Hero } from "../../components/home/Hero";
+import HotRides from "../../components/home/HotRides";
 import Team from "../../components/home/Team";
 import Testimonial from "../../components/home/Testimonial";
 import WhyChooseUs from "../../components/home/WhyChooseUs";
@@ -14,6 +16,12 @@ const Home = () => {
       <Hero />
       <div className="">
         <Featured />
+        <div className="">
+          <HotRides />
+        </div>
+        <div data-aos="zoom-out" className="mt-10">
+          <Cta />
+        </div>
         <div data-aos="fade-up" className="">
           <WhyChooseUs />
         </div>

@@ -32,15 +32,12 @@ const HeroFilter = () => {
       data?.color?.charAt(0)?.toLowerCase() + data?.color?.slice(1) || "";
 
     try {
-      const res = await axios.get(
-        `https://car-rental-reservation-system-nine.vercel.app/api/cars`,
-        {
-          params: {
-            location,
-            color,
-          },
-        }
-      );
+      const res = await axios.get(`http://localhost:5000/api/cars`, {
+        params: {
+          location,
+          color,
+        },
+      });
 
       if (!res?.data?.data?.length) {
         Swal.fire({

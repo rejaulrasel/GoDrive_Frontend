@@ -24,13 +24,13 @@ import CanceledBookings from "../pages/dashboard/admin/bookings/CanceledBookings
 import AllVehicles from "../pages/dashboard/admin/Vehicles/AllVehicles";
 import AddVehicle from "../pages/dashboard/admin/Vehicles/AddVehicle";
 import EditVehicle from "../pages/dashboard/admin/Vehicles/edit/EditVehicle";
+import NotFoundError from "../components/error/404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-
     element: <Root />,
-    // errorElement: <NotFoundError />,
+    errorElement: <NotFoundError />,
     children: [
       { index: true, element: <Home /> },
       { path: "/about", element: <About /> },
