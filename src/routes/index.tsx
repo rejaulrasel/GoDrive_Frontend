@@ -25,6 +25,7 @@ import AllVehicles from "../pages/dashboard/admin/Vehicles/AllVehicles";
 import AddVehicle from "../pages/dashboard/admin/Vehicles/AddVehicle";
 import EditVehicle from "../pages/dashboard/admin/Vehicles/edit/EditVehicle";
 import NotFoundError from "../components/error/404";
+import Payout from "../pages/root/payment/Payout";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
       { path: "/auth/register", element: <Register /> },
       { path: "/auth/recover", element: <Recover /> },
       { path: "/profile/settings", element: <ProfileSettings /> },
+      { path: "/user/booking/payout/:bookingId", element: <Payout /> },
 
       // admin (protected)
       {
