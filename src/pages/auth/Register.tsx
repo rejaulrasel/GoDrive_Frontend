@@ -44,7 +44,7 @@ const Register = () => {
 
                 } catch (error) {
                     toast.error('An error occurred. Please try again later. 🙁', { id: toastId });
-                    console.log(error);
+                    
                 }
             }
         }

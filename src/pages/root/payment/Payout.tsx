@@ -26,11 +26,14 @@ const Payment = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/bookings/my-bookings?_id=${bookingId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://car-server-03.vercel.app/api/bookings/my-bookings?_id=${bookingId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setBooking(data?.data);

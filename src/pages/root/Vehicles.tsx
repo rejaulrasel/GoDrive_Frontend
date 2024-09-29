@@ -33,16 +33,19 @@ const Vehicles = () => {
 
   const fetchProducts = async (): Promise<void> => {
     try {
-      const response = await axios.get("http://localhost:5000/api/cars", {
-        params: {
-          searchTerm,
-          location,
-          color,
-          minPrice,
-          maxPrice,
-          sortOrder,
-        },
-      });
+      const response = await axios.get(
+        "https://car-server-03.vercel.app/api/cars",
+        {
+          params: {
+            searchTerm,
+            location,
+            color,
+            minPrice,
+            maxPrice,
+            sortOrder,
+          },
+        }
+      );
       setData(response.data.data);
       setIsLoading(false);
     } catch (error) {

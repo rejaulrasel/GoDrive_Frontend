@@ -31,7 +31,7 @@ const VehicleCard: React.FC<TVehicleResponse> = ({ _id, name, status, descriptio
                     }
 
                 } catch (error) {
-                    console.log(error);
+                    
                     Swal.fire({
                         icon: "error",
                         title: "Something went wrong!",

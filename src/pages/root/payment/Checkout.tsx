@@ -37,7 +37,7 @@ const Checkout: React.FC<{
     const fetchClientSecret = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/user/booking/pay?booking=${bookingId}`,
+          `https://car-server-03.vercel.app/api/user/booking/pay?booking=${bookingId}`,
           {
             method: "POST",
             headers: {
@@ -140,7 +140,7 @@ const Checkout: React.FC<{
           subject: ` Payment Confirmation: Thank You for Settling Your Account`,
           description: `We have successfully received your payment of USD ${
             booking ? booking[0].totalCost : null
-          } for your recent rental with RentNGo.
+          } for your recent rental with GoDrive.
     
                     Vehicle: ${booking ? booking[0].car.name : null}
                     Rent Period: ${

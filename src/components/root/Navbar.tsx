@@ -23,11 +23,11 @@ const Navbar = () => {
           <Link to={"/"}>
             {" "}
             <h2>
-              Rent<span className="text-rose-600">NGo—</span>
+              Go<span className="text-rose-600">Drive</span>
             </h2>
           </Link>
         </div>
-        <ul className="hidden items-center justify-between gap-10 md:flex">
+        <ul className=" items-center justify-between gap-10 md:flex">
           <NavLink to={"/"}>
             <li className="group flex  cursor-pointer flex-col">
               Home
@@ -83,7 +83,7 @@ const Navbar = () => {
               </li>
             </NavLink>
           ) : (
-            <div className="hidden dropdown dropdown-end">
+            <div className=" dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"

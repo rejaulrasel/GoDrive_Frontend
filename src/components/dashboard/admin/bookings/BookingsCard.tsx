@@ -76,7 +76,7 @@ const BookingCard: React.FC<TBookingCardProps> = ({
                   name: user?.name,
                   email: user?.email,
                   subject: `Vehicle Return Confirmation & Payment Due for ${car?.name}`,
-                  description: `Thank you for returning the "${car.name}" to RentNGo. We hope you had a great experience.
+                  description: `Thank you for returning the "${car.name}" to GoDrive. We hope you had a great experience.
 
                                     Please note that your total due for this rental is USD ${due}.
                                     Payment Link: ${paymentUrl}
@@ -92,7 +92,6 @@ const BookingCard: React.FC<TBookingCardProps> = ({
                     icon: "success",
                   });
                 }
-                console.log(EMAIL_PARAMS);
               }
             });
           }

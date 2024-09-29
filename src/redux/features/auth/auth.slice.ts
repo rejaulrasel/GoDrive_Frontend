@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../../store";
 import { TUser } from "../../../interface/user.auth.interface";
 
-interface TAuthState {
+export interface TAuthState {
     user: null | TUser;
     token: null | string
 }

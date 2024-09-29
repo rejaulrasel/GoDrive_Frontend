@@ -54,7 +54,7 @@ const AddVehicle: FC = () => {
 
         } catch (error) {
             toast.error('Oops! Something went Wrong 😒', { id: toastId });
-            console.log(error);
+  
         }
     }
 

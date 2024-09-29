@@ -32,12 +32,15 @@ const HeroFilter = () => {
       data?.color?.charAt(0)?.toLowerCase() + data?.color?.slice(1) || "";
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/cars`, {
-        params: {
-          location,
-          color,
-        },
-      });
+      const res = await axios.get(
+        `https://car-server-03.vercel.app/api/cars`,
+        {
+          params: {
+            location,
+            color,
+          },
+        }
+      );
 
       if (!res?.data?.data?.length) {
         Swal.fire({
@@ -52,7 +55,6 @@ const HeroFilter = () => {
       setColorX(color);
       setLocationX(location);
     } catch (error) {
-      console.log(error);
       toast.error("Something went wrong 😥");
     }
   };

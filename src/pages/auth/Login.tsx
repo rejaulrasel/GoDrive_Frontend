@@ -44,7 +44,6 @@ const Login = () => {
         } else if (location?.state) {
           navigate(location.state);
         } else {
-          // console.log(serverResponse?.data?.data?.role);
           navigate(`/dashboard/${serverResponse?.data?.data?.role}/overview`);
         }
         toast.success("Logged in Success", { id: toastId });
@@ -53,7 +52,6 @@ const Login = () => {
       toast.error("An error occurred. Please try again later. 🙁", {
         id: toastId,
       });
-      console.log(error);
     }
   };
 

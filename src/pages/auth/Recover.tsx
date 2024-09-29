@@ -43,7 +43,7 @@ const Recover: FC = () => {
 
     try {
       const res = await axios.get<{ success: boolean; data: TAxiosResponse }>(
-        `http://localhost:5000/api/auth/user/recovery`,
+        `https://car-server-03.vercel.app/api/auth/user/recovery`,
         {
           params: {
             email,
@@ -75,7 +75,6 @@ const Recover: FC = () => {
       }
     } catch (error) {
       setError("Something went wrong");
-      console.log(error);
     }
   };
 
@@ -108,7 +107,6 @@ const Recover: FC = () => {
         }
       );
       setUser(null);
-      console.log(error);
     }
   };
 
@@ -149,10 +147,9 @@ const Recover: FC = () => {
       toast.dismiss(toastId);
       return;
     } else {
-      console.log("success");
       // DONE: call the server to set new password;
       const res = await axios.patch<{ success: boolean; message: string }>(
-        `http://localhost:5000/api/auth/user/recovery/passed`,
+        `https://car-server-03.vercel.app/api/auth/user/recovery/passed`,
         {
           token: user?.token,
           newPassword: password,
