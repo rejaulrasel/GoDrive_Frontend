@@ -95,10 +95,10 @@ export const Hero = () => {
             <div className="max-w-3xl text-center ltr:sm:text-left rtl:sm:text-right">
               {titles[currentSlider]}
               <p className="mt-4 max-w-lg  text-white md:text-left sm:text-xl/relaxed">
-                Hit the road wit GoDrive your go-to car rental solution.
-                Choose from a wide range of vehicles at unbeatable prices, with
-                easy booking and 24/7 support. Enjoy flexible rentals and
-                exclusive deals. Your journey starts here!"
+                Hit the road wit GoDrive your go-to car rental solution. Choose
+                from a wide range of vehicles at unbeatable prices, with easy
+                booking and 24/7 support. Enjoy flexible rentals and exclusive
+                deals. Your journey starts here!"
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4 text-center !justify-start md:justify-center">

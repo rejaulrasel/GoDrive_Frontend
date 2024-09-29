@@ -33,7 +33,7 @@ const HeroFilter = () => {
 
     try {
       const res = await axios.get(
-        `https://car-server-03.vercel.app/api/cars`,
+        `https://car-rental-server-new-v1.vercel.app/api/cars`,
         {
           params: {
             location,

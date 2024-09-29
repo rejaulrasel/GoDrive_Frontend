@@ -5,7 +5,6 @@ import {
 } from "../../redux/features/vehicle/vehicle.api";
 import FetchErrorElmt from "../../components/error/FetchErrorElmt";
 import LoadingSpinier from "../../components/global/LoadingSpinier";
-import ReactImageMagnify from "react-image-magnify";
 import Footer from "../../components/root/Footer";
 import { TVehicleResponse } from "../../interface/response.vehicle.interface";
 import Navbar from "../../components/root/Navbar";
@@ -144,25 +143,7 @@ const VehicleDetails: FC = () => {
         <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6 rounded-lg">
           <div className="lg:col-span-3 w-full lg:sticky top-0 text-center">
             <div className="rounded-lg shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative">
-              <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: "Product",
-                    isFluidWidth: true,
-                    src: item?.data?.photo,
-                  },
-                  largeImage: {
-                    src: item?.data?.photo,
-                    width: 1200,
-                    height: 1800,
-                  },
-                  enlargedImageContainerStyle: {
-                    background: "#fff",
-                    zIndex: 9,
-                  },
-                  enlargedImageStyle: { objectFit: "cover" },
-                }}
-              />
+              <img src={item?.data?.photo} alt="" />
             </div>
             <div className="text-left mt-5 hidden md:block">
               {item?.data?.description}

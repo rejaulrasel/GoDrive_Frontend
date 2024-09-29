@@ -37,7 +37,7 @@ const Checkout: React.FC<{
     const fetchClientSecret = async () => {
       try {
         const response = await fetch(
-          `https://car-server-03.vercel.app/api/user/booking/pay?booking=${bookingId}`,
+          `https://car-rental-server-new-v1.vercel.app/api/user/booking/pay?booking=${bookingId}`,
           {
             method: "POST",
             headers: {

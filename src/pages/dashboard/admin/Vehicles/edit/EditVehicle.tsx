@@ -53,7 +53,7 @@ const EditVehicle: React.FC = () => {
     const fetchVehicle = async () => {
       try {
         const vehicle = await axios.get(
-          `https://car-server-03.vercel.app/api/cars/${_id}`
+          `https://car-rental-server-new-v1.vercel.app/api/cars/${_id}`
         );
         setInitialValues(vehicle?.data?.data);
         setShowFileName({

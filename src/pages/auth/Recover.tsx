@@ -43,7 +43,7 @@ const Recover: FC = () => {
 
     try {
       const res = await axios.get<{ success: boolean; data: TAxiosResponse }>(
-        `https://car-server-03.vercel.app/api/auth/user/recovery`,
+        `https://car-rental-server-new-v1.vercel.app/api/auth/user/recovery`,
         {
           params: {
             email,
@@ -149,7 +149,7 @@ const Recover: FC = () => {
     } else {
       // DONE: call the server to set new password;
       const res = await axios.patch<{ success: boolean; message: string }>(
-        `https://car-server-03.vercel.app/api/auth/user/recovery/passed`,
+        `https://car-rental-server-new-v1.vercel.app/api/auth/user/recovery/passed`,
         {
           token: user?.token,
           newPassword: password,

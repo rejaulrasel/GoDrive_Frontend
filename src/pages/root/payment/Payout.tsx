@@ -27,7 +27,7 @@ const Payment = () => {
 
   useEffect(() => {
     fetch(
-      `https://car-server-03.vercel.app/api/bookings/my-bookings?_id=${bookingId}`,
+      `https://car-rental-server-new-v1.vercel.app/api/bookings/my-bookings?_id=${bookingId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -34,7 +34,7 @@ const Vehicles = () => {
   const fetchProducts = async (): Promise<void> => {
     try {
       const response = await axios.get(
-        "https://car-server-03.vercel.app/api/cars",
+        "https://car-rental-server-new-v1.vercel.app/api/cars",
         {
           params: {
             searchTerm,
