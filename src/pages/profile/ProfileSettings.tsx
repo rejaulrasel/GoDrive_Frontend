@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/root/Navbar";
-import demoProfile from "../../../src/assets/demo-profile.jpg";
+import demoProfile from "../../../src/assets/pngtree-user-profile-avatar-png-image_13369988.png";
 import {
   useGetFullUserQuery,
   usePatchUserMutation,

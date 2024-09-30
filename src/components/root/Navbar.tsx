@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, useCurrentUser } from "../../redux/features/auth/auth.slice";
-import demoProfile from "../../../src/assets/demo-profile.jpg";
+import demoProfile from "../../../src/assets/pngtree-user-profile-avatar-png-image_13369988.png";
 import { useGetFullUserQuery } from "../../redux/features/user/user.api";
 import Headroom from "react-headroom";
 

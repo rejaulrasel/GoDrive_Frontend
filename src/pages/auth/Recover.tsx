@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import Footer from "../../components/root/Footer";
 import Navbar from "../../components/root/Navbar";
 import axios from "axios";
-import demoProfile from "../../assets/demo-profile.jpg";
+import demoProfile from "../../assets/pngtree-user-profile-avatar-png-image_13369988.png";
 import { GetProps, Input } from "antd";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
