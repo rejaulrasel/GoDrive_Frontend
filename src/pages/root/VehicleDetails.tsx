@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import "./ImageMagnifier.css";
 import {
   useGetSingleVehicleQuery,
   useGetVehiclesQuery,
@@ -22,6 +23,10 @@ import { TNotificationEmail } from "../../interface/email.emailjs.params.interfa
 import sendEmail from "../../utils/sendEmail";
 
 const VehicleDetails: FC = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
   const { _id } = useParams<{ _id: string }>();
   const user = useAppSelector(useCurrentUser);
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -133,6 +138,21 @@ const VehicleDetails: FC = () => {
     }
   };
 
+  const handleMouseHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Corrected the usage of getBoundingClientRect
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.pageX - left - window.scrollX) / width) * 100;
+    const y = ((e.pageY - top - window.scrollY) / height) * 100;
+    const cursorX = e.pageX - left - window.scrollX;
+    const cursorY = e.pageY - top - window.scrollY;
+
+    setPosition({ x, y });
+
+    setCursorPosition({ x: cursorX, y: cursorY });
+  };
+
   if (singleLoading) return <LoadingSpinier />;
   if (singleError) return <FetchErrorElmt />;
 
@@ -142,8 +162,36 @@ const VehicleDetails: FC = () => {
       <div data-aos="fade-left" className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
         <div className="grid items-start grid-cols-1 lg:grid-cols-5 gap-12 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6 rounded-lg">
           <div className="lg:col-span-3 w-full lg:sticky top-0 text-center">
-            <div className="rounded-lg shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative">
-              <img src={item?.data?.photo} alt="" />
+            <div
+              className="rounded-lg shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative img-magnifier-container"
+              onMouseEnter={() => setShowMagnifier(true)}
+              onMouseLeave={() => setShowMagnifier(false)}
+              onMouseMove={handleMouseHover}
+            >
+              <img
+                src={item?.data?.photo}
+                className="rounded-2xl magnifier-img w-full h-full object-cover"
+                alt=""
+              />
+              {showMagnifier && (
+                <div
+                  style={{
+                    position: "absolute",
+                    left: `${cursorPosition.x - 100}px`,
+                    top: `${cursorPosition.y - 100}px`,
+                    pointerEvents: "none",
+                    width: "200px",
+                    height: "200px",
+                    border: "2px solid #fff",
+                    borderRadius: "10px",
+                    backgroundImage: `url(${item?.data?.photo})`,
+
+                    backgroundSize: "600%",
+                    backgroundPosition: `${position.x}% ${position.y}%`,
+                    zIndex: 10,
+                  }}
+                ></div>
+              )}
             </div>
             <div className="text-left mt-5 hidden md:block">
               {item?.data?.description}
