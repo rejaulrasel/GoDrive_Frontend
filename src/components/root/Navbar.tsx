@@ -83,7 +83,7 @@ const Navbar = () => {
               </li>
             </NavLink>
           ) : (
-            <div className=" dropdown dropdown-end">
+            <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"
@@ -108,7 +108,6 @@ const Navbar = () => {
                   <div className="justify-between">
                     {user?.user}
                     <span className="badge">
-                      {/* {user.role.charAt(0).toLocaleUpperCase() + user.role.slice(1)} */}
                       {user.role === "user" ? "Customer" : "Admin"}
                     </span>
                   </div>
@@ -157,7 +156,6 @@ const Navbar = () => {
                   <div className="justify-between">
                     {user?.user}
                     <span className="badge">
-                      {/* {user.role.charAt(0).toLocaleUpperCase() + user.role.slice(1)} */}
                       {user.role === "user" ? "Customer" : "Admin"}
                     </span>
                   </div>
